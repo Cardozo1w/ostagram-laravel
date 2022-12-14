@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('titulo', 'Create Account')
+@section('title', 'Create Account')
 
-@section('contenido')
+@section('content')
     <div class="md:flex md:justify-center md:gap-8">
         <div class="md:w-5/12 flex items-center">
             <div class="rounded-lg h-full">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="mb-5">
                     <label for="username" class="mb-2 uppercase block text-gray-500 font-bold">Username</label>
-                    <input type="text" username="username" id="username" placeholder="Username"
+                    <input type="text" name="username" id="username" placeholder="Username"
                         class="w-full border p-3 rounded-lg @error('username') border-red-500 @enderror"
                         value="{{ old('username') }}">
                     @error('username')
@@ -49,8 +49,7 @@
                 <div class="mb-5">
                     <label for="password" class="mb-2 uppercase block text-gray-500 font-bold">Password</label>
                     <input type="password" name="password" id="password" placeholder="Password"
-                        class="w-full border p-3 rounded-lg @error('password') border-red-500 @enderror"
-                        value="{{ old('password') }}">
+                        class="w-full border p-3 rounded-lg @error('password') border-red-500 @enderror">
                     @error('password')
                         <span class="text-red-500 text-sm" role="alert">
                             <strong>{{ $message }}</strong>
@@ -62,8 +61,7 @@
                         Password</label>
                     <input type="password" name="confirm_password" id="confirm_password"
                         placeholder="Confirm Password"
-                        class="w-full border p-3 rounded-lg @error('confirm_password') border-red-500 @enderror"
-                        value="{{ old('confirm_password') }}">
+                        class="w-full border p-3 rounded-lg @error('confirm_password') border-red-500 @enderror">
                     @error('confirm_password')
                         <span class="text-red-500 text-sm" role="alert">
                             <strong>{{ $message }}</strong>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('titulo', 'Página principal')
+@section('title', 'Página principal')
 
-@section('contenido')
+@section('content')
     <p>Este es el contenido de la página principal</p>
 @endsection

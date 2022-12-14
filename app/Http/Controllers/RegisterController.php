@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -11,7 +14,8 @@ class RegisterController extends Controller
     }
 
     public function store(Request $request){
-        // dd($request->get('name'));
+
+        $request->request->add(['username' => Str::slug($request->get('username'))]);
 
         //Validate
         $this->validate($request,[
@@ -21,5 +25,18 @@ class RegisterController extends Controller
             'password' => 'required|min:8',
             'confirm_password' => 'required|same:password'
         ]);
+
+        User::create([
+            'name' => $request->get('name'),
+            'username' => Str::slug($request->get('username')),
+            'email' => $request->get('email'),
+            'password' => Hash::make($request->get('password')),
+        ]);
+
+        //Auth user
+        auth()->attempt($request->only('email', 'password'));
+
+        return redirect()->route('posts.index');
+
     }
 }

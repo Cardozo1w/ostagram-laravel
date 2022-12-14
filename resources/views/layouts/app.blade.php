@@ -19,9 +19,9 @@
 </header>
 
 <main class="container mx-auto mt-8">
-    <h2 class="text-center text-3xl font-bold mb-8">@yield('titulo')</h2>
+    <h2 class="text-center text-3xl font-bold mb-8">@yield('title')</h2>
         <section>
-            @yield('contenido')
+            @yield('content')
         </section>
 </main>
 
